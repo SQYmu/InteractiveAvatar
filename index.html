@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InteractiveAvatar: Real-Time Streaming Video Generation for Consistent and Intent-Aware Avatars</title>
+    <meta
+      name="description"
+      content="InteractiveAvatar is a real-time infinite-streaming video generation framework that supports visually consistent avatar video generation and intent-aware interactions. ECCV 2026."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="InteractiveAvatar: Real-Time Streaming Video Generation for Consistent and Intent-Aware Avatars" />
+    <meta property="og:description" content="InteractiveAvatar is a real-time infinite-streaming video generation framework that supports visually consistent avatar video generation and intent-aware interactions. ECCV 2026." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/teaser.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="static/css/index.css" />
+  </head>
+
+  <body>
+    <!-- ============================ HERO ============================ -->
+    <header class="hero">
+      <div class="container">
+        <p class="venue">ECCV 2026</p>
+        <h1 class="title">
+          InteractiveAvatar: Real-Time Streaming Video Generation for Consistent and Intent-Aware Avatars
+        </h1>
+
+        <div class="authors">
+          <span class="author"><a href="https://caiguijiang.github.io/authors/quanyuesong/">Quanyue Song</a><sup>&#9733;</sup></span>
+          <span class="author">Yishan He<sup>&#9733;</sup></span>
+          <span class="author">Yanfei Zhang</span>
+          <span class="author">Shihao Cheng</span>
+          <span class="author">Zhixiang He</span>
+          <span class="author">Zhizhi Guo<sup>&#8224;</sup></span>
+          <span class="author">Chi Zhang</span>
+          <span class="author">Xuelong Li</span>
+          <span class="author">Caigui Jiang<sup>&#8224;</sup></span>
+        </div>
+
+        <p class="notes">
+          <sup>&#9733;</sup>Equal contribution &nbsp;&nbsp;
+          <sup>&#8224;</sup>Corresponding author
+        </p>
+
+        <div class="buttons">
+          <a class="btn" href="https://arxiv.org/abs/2606.22905" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-lines"></i><span>Paper</span>
+          </a>
+          <!-- EDIT: replace with the real code repo once it is public -->
+          <span class="btn disabled">
+            <i class="fa-brands fa-github"></i><span>Code (soon)</span>
+          </span>
+          <a class="btn" href="#bibtex">
+            <i class="fa-solid fa-quote-left"></i><span>BibTeX</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ TEASER ============================ -->
+    <section class="section">
+      <div class="container">
+        <img class="figure padded-sm" src="assets/teaser.png" alt="InteractiveAvatar overview" />
+        <p class="caption">
+          We propose <strong>InteractiveAvatar</strong>, a real-time streaming audio-driven avatar generation framework that enables intent-aware interaction. InteractiveAvatar interprets user intent to generate contextually relevant actions throughout the dialogue while maintaining long-range visual consistency.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ ABSTRACT ============================ -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>Abstract</h2>
+        <p class="abstract">
+          Recent diffusion-based models have enabled realistic audio-driven avatar generation in real-time streaming. However, existing approaches struggle to maintain visual temporal consistency and fail to explicitly perceive user intent in complex interactive streaming scenarios. To address these challenges, we propose <strong>InteractiveAvatar</strong>, a real-time infinite-streaming video generation framework that supports visually consistent avatar video generation and intent-aware interactions. With autoregressive distillation, InteractiveAvatar achieves real-time str-eaming generation of human avatars over arbitrarily long durations. For visual consistency, we introduce a <strong>Long-Short Visual Memory (LSVM)</strong> mechanism that flexibly compresses historical visual information into compact tokens, preserving both short-range coherence and long-term consistency. To generate avatars with speeches and actions aligned with user intent, we propose a <strong>Reasoning-Reaction Module (RRM)</strong>, which incorporates a State-Cycling strategy and a Cache-Switching mechanism. Extensive experimental results over diverse scenarios demonstrate that our method achieves state-of-the-art visual consistency in long-duration generation, while enabling complex user-avatar interaction in real time.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ METHOD ============================ -->
+    <section class="section alt">
+      <div class="container">
+        <h2>Method</h2>
+
+        <img class="figure padded" src="assets/method.png" alt="InteractiveAvatar architecture" />
+        <p class="caption">
+          <strong>Overview of InteractiveAvatar</strong>, which consists of (a) The Reasoning-Reaction Module (RRM) performs intent-aware interaction with user; (b) Streaming Inference with Long-Short Visual Memory (LSVM) mechanism to enhance the visual consistency; and (c) DMD training for real-time streaming generation.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Real-Time Streaming Framework</h3>
+            <p>
+              A novel real-time streaming audio-driven avatar generation
+              framework that supports long-duration video synthesis with
+              <strong>strong visual consistency</strong> and
+              <strong>intent-aware user-avatar interaction</strong>. With
+              autoregressive distillation, InteractiveAvatar achieves real-time
+              streaming generation of human avatars over arbitrarily long
+              durations.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Long-Short Visual Memory (LSVM)</h3>
+            <p>
+              Flexibly preserves historical visual representations by jointly
+              modeling <strong>short-term</strong> and <strong>long-term</strong>
+              visual information. A Dynamic Key-Frame Selection strategy
+              adaptively transfers critical content from short-term to long-term
+              memory, significantly improving visual coherence in long-duration
+              generation.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Reasoning-Reaction Module (RRM)</h3>
+            <p>
+              Leverages a large language model for intent understanding,
+              equipped with a <strong>State-Cycling</strong> strategy for smooth
+              listening-execution transitions and a
+              <strong>Cache-Switching</strong> mechanism to accelerate action
+              execution and scene transitions with reduced latency.
+            </p>
+          </div>
+        </div>
+
+        <img class="figure" src="assets/memory.png" alt="Long-Short Visual Memory (LSVM)" style="margin-top: 2rem;" />
+        <p class="caption">
+          <strong>LSVM Mechanism.</strong>(a) During training, long-term memory frames are randomly sampled, while short-term memory retains all recent frames. (b) During inference, Dynamic Key-Frame Selection adaptively updates memory to retain critical visual information.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ RESULTS ============================ -->
+    <section class="section">
+      <div class="container">
+        <h2>Results</h2>
+
+        <img class="figure" src="assets/result.png" alt="Qualitative comparison" />
+        <p class="caption">
+          Qualitative comparisons with state-of-the-art methods. Our method
+          exhibits better visual consistency and following of action instructions.
+        </p>
+
+        <div class="table-wrap" style="margin-top: 2rem;">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">Model</th>
+                <th colspan="4">Video Quality</th>
+                <th colspan="5">Consistency</th>
+                <th rowspan="2"><span class="th-sub">Speed</span>FPS &uarr;</th>
+              </tr>
+              <tr>
+                <th>IQA &uarr;</th>
+                <th>ASE &uarr;</th>
+                <th>FID &darr;</th>
+                <th>FVD &darr;</th>
+                <th>SynC &uarr;</th>
+                <th>SynD &darr;</th>
+                <th>OBJ &uarr;</th>
+                <th>ID &uarr;</th>
+                <th>TV &uarr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>StableAvatar</td><td>3.91</td><td>3.82</td><td><u>79.7</u></td><td><u>654.1</u></td><td>3.57</td><td>10.27</td><td>79.5</td><td>4.41</td><td>25.34</td><td>0.69</td></tr>
+              <tr><td>OmniAvatar</td><td>3.77</td><td>3.87</td><td>94.1</td><td>831.9</td><td><strong>4.94</strong></td><td><strong>7.87</strong></td><td><u>82.8</u></td><td>4.38</td><td>24.57</td><td>0.17</td></tr>
+              <tr><td>HYAvatar</td><td>3.81</td><td><strong>3.93</strong></td><td><strong>76.5</strong></td><td><strong>632.6</strong></td><td>4.78</td><td>8.11</td><td>78.9</td><td>4.46</td><td>25.61</td><td>0.09</td></tr>
+              <tr><td>Hallo3</td><td>3.57</td><td>3.29</td><td>112.5</td><td>1127.6</td><td>4.21</td><td>9.74</td><td>75.1</td><td>4.31</td><td>24.92</td><td>0.28</td></tr>
+              <tr><td>EchoMimicV3</td><td><strong>3.96</strong></td><td>3.89</td><td>85.2</td><td>773.9</td><td>3.89</td><td>10.09</td><td>80.3</td><td>4.45</td><td>25.56</td><td>0.81</td></tr>
+              <tr><td>WanS2V</td><td>3.76</td><td>3.68</td><td>88.4</td><td>793.5</td><td>4.54</td><td>8.95</td><td>82.6</td><td>4.49</td><td>25.14</td><td>0.26</td></tr>
+              <tr><td>LiveAvatar</td><td><u>3.94</u></td><td><u>3.91</u></td><td>83.9</td><td>672.7</td><td><u>4.91</u></td><td>8.17</td><td>76.9</td><td><strong>4.53</strong></td><td><u>25.78</u></td><td><u>21.94</u></td></tr>
+              <tr class="ours"><td>Ours</td><td>3.87</td><td>3.89</td><td>80.2</td><td>701.4</td><td>4.86</td><td><u>7.91</u></td><td><strong>85.2</strong></td><td><u>4.51</u></td><td><strong>25.93</strong></td><td><strong>26.68</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption">
+          Quantitative comparison with state-of-the-art methods. Best in
+          <strong>bold</strong> and second best <u>underlined</u>. Experiments are
+          conducted using the H100 GPU.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ============================ DEMO ============================ -->
+    <section class="section alt">
+      <div class="container">
+        <h2>Demo Video</h2>
+        <video class="figure video-portrait" src="assets/supple_demo.mp4" controls preload="metadata" poster="assets/video_demo_fig.png">
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">
+          <strong>Video demo</strong> showcasing InteractiveAvatar
+          generating real-time streaming avatar videos with visual consistency
+          and intent-aware interactions.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ BIBTEX ============================ -->
+    <section id="bibtex" class="section alt">
+      <div class="container narrow">
+        <h2>BibTeX</h2>
+        <div class="bibtex">
+          <button class="copy-btn" type="button" aria-label="Copy BibTeX">
+            <i class="fa-regular fa-copy"></i> Copy
+          </button>
+          <pre><code>@misc{song2026interactiveavatarrealtimestreamingvideo,
+      title={InteractiveAvatar: Real-Time Streaming Video Generation for Consistent and Intent-Aware Avatars}, 
+      author={Quanyue Song and Yishan He and Yanfei Zhang and Shihao Cheng and Zhixiang He and Zhizhi Guo and Chi Zhang and Xuelong Li and Caigui Jiang},
+      year={2026},
+      eprint={2606.22905},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2606.22905}, 
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          Project page for <strong>InteractiveAvatar</strong> (ECCV 2026). Template inspired
+          by academic project pages. &copy; 2026 Quanyue Song.
+        </p>
+      </div>
+    </footer>
+
+    <script src="static/js/index.js"></script>
+  </body>
+</html>
